@@ -1,0 +1,7 @@
+{
+  "primitive_leaves": "callfromthedepth_:silentleaves",
+  "cell_kit": "dynamictrees:deciduous",
+  "texture_overrides": {
+    "leaves": "callfromthedepth_:block/silentleaves"
+  }
+}

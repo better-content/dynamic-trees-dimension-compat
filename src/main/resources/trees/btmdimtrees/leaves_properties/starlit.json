@@ -1,0 +1,7 @@
+{
+  "primitive_leaves": "blue_skies:starlit_leaves",
+  "cell_kit": "dynamictrees:conifer",
+  "texture_overrides": {
+    "leaves": "blue_skies:block/starlit_leaves"
+  }
+}

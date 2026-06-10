@@ -1,0 +1,7 @@
+{
+  "primitive_leaves": "undergarden:wigglewood_leaves",
+  "cell_kit": "dynamictrees:deciduous",
+  "texture_overrides": {
+    "leaves": "undergarden:block/wigglewood_leaves"
+  }
+}

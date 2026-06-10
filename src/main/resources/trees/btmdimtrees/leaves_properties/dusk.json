@@ -1,0 +1,7 @@
+{
+  "primitive_leaves": "blue_skies:dusk_leaves",
+  "cell_kit": "dynamictrees:deciduous",
+  "texture_overrides": {
+    "leaves": "blue_skies:block/dusk_leaves"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "family": "btmdimtrees:maple",
+  "leaves_properties": "btmdimtrees:maple",
+  "tapering": 0.28,
+  "signal_energy": 14.0,
+  "growth_rate": 0.8,
+  "up_probability": 2,
+  "lowest_branch_height": 4,
+  "soil_longevity": 10,
+  "primitive_sapling": "blue_skies:maple_sapling",
+  "perfect_biomes": { "name": "blue_skies:.*" },
+  "features": [ "bottom_flare", "roots" ]
+}

@@ -1,0 +1,13 @@
+{
+  "family": "btmdimtrees:grongle",
+  "leaves_properties": "btmdimtrees:grongle",
+  "tapering": 0.3,
+  "signal_energy": 15.0,
+  "growth_rate": 0.7,
+  "up_probability": 2,
+  "lowest_branch_height": 4,
+  "soil_longevity": 12,
+  "primitive_sapling": "undergarden:grongle_sapling",
+  "perfect_biomes": { "name": "undergarden:.*" },
+  "features": [ "bottom_flare", "roots" ]
+}

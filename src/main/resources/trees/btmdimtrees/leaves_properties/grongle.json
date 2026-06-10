@@ -1,0 +1,7 @@
+{
+  "primitive_leaves": "undergarden:grongle_leaves",
+  "cell_kit": "dynamictrees:deciduous",
+  "texture_overrides": {
+    "leaves": "undergarden:block/grongle_leaves"
+  }
+}

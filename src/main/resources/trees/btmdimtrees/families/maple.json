@@ -1,0 +1,13 @@
+{
+  "common_leaves": "btmdimtrees:maple",
+  "common_species": "btmdimtrees:maple",
+  "primitive_log": "blue_skies:maple_log",
+  "primitive_stripped_log": "blue_skies:stripped_maple_log",
+  "max_branch_radius": 8,
+  "texture_overrides": {
+    "branch": "blue_skies:block/maple_log",
+    "branch_top": "blue_skies:block/maple_log_top",
+    "stripped_branch": "blue_skies:block/stripped_maple_log",
+    "stripped_branch_top": "blue_skies:block/stripped_maple_log_top"
+  }
+}

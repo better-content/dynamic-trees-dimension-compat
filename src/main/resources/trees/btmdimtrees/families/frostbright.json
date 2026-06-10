@@ -1,0 +1,13 @@
+{
+  "common_leaves": "btmdimtrees:frostbright",
+  "common_species": "btmdimtrees:frostbright",
+  "primitive_log": "blue_skies:frostbright_log",
+  "primitive_stripped_log": "blue_skies:stripped_frostbright_log",
+  "max_branch_radius": 8,
+  "texture_overrides": {
+    "branch": "blue_skies:block/frostbright_log",
+    "branch_top": "blue_skies:block/frostbright_log_top",
+    "stripped_branch": "blue_skies:block/stripped_frostbright_log",
+    "stripped_branch_top": "blue_skies:block/stripped_frostbright_log_top"
+  }
+}

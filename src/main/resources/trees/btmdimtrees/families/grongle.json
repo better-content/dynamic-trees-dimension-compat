@@ -1,0 +1,13 @@
+{
+  "common_leaves": "btmdimtrees:grongle",
+  "common_species": "btmdimtrees:grongle",
+  "primitive_log": "undergarden:grongle_log",
+  "primitive_stripped_log": "undergarden:stripped_grongle_log",
+  "max_branch_radius": 8,
+  "texture_overrides": {
+    "branch": "undergarden:block/grongle_log",
+    "branch_top": "undergarden:block/grongle_log_top",
+    "stripped_branch": "undergarden:block/stripped_grongle_log",
+    "stripped_branch_top": "undergarden:block/stripped_grongle_log_top"
+  }
+}

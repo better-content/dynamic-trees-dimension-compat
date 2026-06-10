@@ -1,0 +1,12 @@
+{
+  "family": "btmdimtrees:silent_tree",
+  "leaves_properties": "btmdimtrees:silent_tree",
+  "tapering": 0.25,
+  "signal_energy": 14.0,
+  "growth_rate": 0.7,
+  "up_probability": 2,
+  "lowest_branch_height": 4,
+  "soil_longevity": 10,
+  "perfect_biomes": { "name": "callfromthedepth_:.*" },
+  "features": [ "bottom_flare", "roots" ]
+}
