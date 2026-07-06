@@ -90,9 +90,6 @@ if (file('src/gameteststructures').exists()) {
 }
 
 repositories {
-    flatDir {
-        dirs 'libs'
-    }
     maven {
         name = 'MinecraftForge'
         url = 'https://maven.minecraftforge.net'
@@ -111,7 +108,11 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.4.13'
     implementation fg.deobf("com.ferreusveritas.dynamictrees:DynamicTrees-1.20.1:1.4.9")
-    runtimeOnly fileTree(dir: 'libs', include: '*.jar')
+    runtimeOnly fg.deobf("curse.maven:blue-skies-312918:5010316")
+    runtimeOnly fg.deobf("curse.maven:the-undergarden-379849:5182632")
+    runtimeOnly fg.deobf("curse.maven:call-from-the-depths-sculk-dimension-1013658:7097966")
+    runtimeOnly fg.deobf("curse.maven:the-finley-dimension-remastered-1209777:6527178")
+    runtimeOnly fg.deobf("curse.maven:structure-gel-api-378802:5278429")
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     testImplementation 'com.google.code.gson:gson:2.10.1'
     // Optional at runtime if you use DTPlus-only treepack content.

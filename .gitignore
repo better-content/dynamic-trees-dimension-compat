@@ -11,6 +11,7 @@
 /.classpath
 /.settings/
 /.codex/
+/libs/*.jar
 *.iml
 *.ipr
 *.iws

@@ -16,3 +16,5 @@ Run:
 ./gradlew runData
 ./gradlew build
 ```
+
+Runtime-only compatibility mods resolve from Maven coordinates in `build.gradle`. Do not commit downloaded mod jars under `libs/`.
