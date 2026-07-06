@@ -135,6 +135,38 @@ jar {
     finalizedBy 'reobfJar'
 }
 
+tasks.register('stageRuntimeJar', Copy) {
+    group = 'build'
+    description = 'Stages the reobfuscated runtime jar into build/libs using the canonical release filename.'
+    dependsOn tasks.named('reobfJar')
+    from layout.buildDirectory.file('reobfJar/output.jar')
+    into layout.buildDirectory.dir('libs')
+    rename { "${project.base.archivesName.get()}-${project.version}.jar" }
+}
+
+tasks.named('assemble').configure {
+    dependsOn tasks.named('stageRuntimeJar')
+}
+
 test {
     useJUnitPlatform()
+}
+
+tasks.register('headlessGameTest') {
+    group = 'verification'
+    description = 'Runs Forge game tests in a headless dedicated server.'
+    dependsOn tasks.named('runGameTestServer')
+}
+
+tasks.register('verifyFast') {
+    group = 'verification'
+    description = 'Runs the fast deterministic verification lane.'
+    dependsOn tasks.named('check')
+}
+
+tasks.register('verifyFull') {
+    group = 'verification'
+    description = 'Runs the full deterministic verification lane and stages the runtime jar.'
+    dependsOn tasks.named('verifyFast')
+    dependsOn tasks.named('stageRuntimeJar')
 }
