@@ -16,15 +16,6 @@ public final class BtmDimTreesSoils {
     private static final Logger LOGGER = LogManager.getLogger();
 
     private static final String[] DIRT_LIKE_SOILS = {
-            "blue_skies:lunar_grass_block",
-            "blue_skies:lunar_dirt",
-            "blue_skies:coarse_lunar_dirt",
-            "blue_skies:turquoise_grass_block",
-            "blue_skies:turquoise_dirt",
-            "blue_skies:coarse_turquoise_dirt",
-            "blue_skies:charoite_grass_block",
-            "blue_skies:charoite",
-            "blue_skies:coarse_charoite",
             "undergarden:deepturf_block",
             "undergarden:frozen_deepturf_block",
             "undergarden:ashen_deepturf_block",

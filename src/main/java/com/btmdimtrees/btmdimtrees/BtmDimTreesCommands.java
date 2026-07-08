@@ -56,11 +56,6 @@ public final class BtmDimTreesCommands {
 
     private static int resourceStatus(final java.util.function.Consumer<String> output) {
         for (String tree : List.of(
-                "bluebright",
-                "dusk",
-                "frostbright",
-                "maple",
-                "starlit",
                 "grongle",
                 "smogstem",
                 "wigglewood",
@@ -115,12 +110,7 @@ public final class BtmDimTreesCommands {
                 .flatMap(Optional::stream)
                 .anyMatch(key -> new ResourceLocation("dynamictrees", "dynamic_tree").equals(key.location()));
         final String soilChecks = String.join(",",
-                soilCheck(level, species, "minecraft:dirt"),
-                soilCheck(level, species, "blue_skies:lunar_grass_block"),
-                soilCheck(level, species, "blue_skies:lunar_dirt"),
-                soilCheck(level, species, "blue_skies:coarse_lunar_dirt"),
-                soilCheck(level, species, "blue_skies:turquoise_grass_block"),
-                soilCheck(level, species, "blue_skies:turquoise_dirt")
+                soilCheck(level, species, "minecraft:dirt")
         );
 
         output.accept("dimension=" + dimensionId

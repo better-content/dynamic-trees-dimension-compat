@@ -23,11 +23,6 @@ public record DimensionTreeBiomeModifier(
     private static final Logger LOGGER = LogManager.getLogger();
     private static final AtomicInteger MODIFY_LOGS = new AtomicInteger();
     private static final Set<String> DIMENSION_FOREST_BIOMES = Set.of(
-            "blue_skies:brumble_forest",
-            "blue_skies:frostbitten_forest",
-            "blue_skies:snow_covered_pines",
-            "blue_skies:shaded_woodlands",
-            "blue_skies:sunset_maple_forest",
             "undergarden:dense_forest",
             "undergarden:gronglegrowth",
             "undergarden:smogstem_forest",

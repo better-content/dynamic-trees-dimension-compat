@@ -17,16 +17,11 @@ import org.junit.jupiter.api.Test;
 final class BtmDimTreesResourceTest {
     private static final Path TREE_ROOT = Path.of("src/main/resources/trees/btmdimtrees");
     private static final Set<String> EXPECTED_SPECIES = Set.of(
-            "btmdimtrees:bluebright",
-            "btmdimtrees:dusk",
             "btmdimtrees:finley_wood",
-            "btmdimtrees:frostbright",
             "btmdimtrees:grongle",
             "btmdimtrees:living_wood",
-            "btmdimtrees:maple",
             "btmdimtrees:silent_tree",
             "btmdimtrees:smogstem",
-            "btmdimtrees:starlit",
             "btmdimtrees:wigglewood"
     );
 

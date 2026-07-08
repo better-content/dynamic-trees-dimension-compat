@@ -1,7 +1,0 @@
-{
-  "primitive_leaves": "blue_skies:frostbright_leaves",
-  "cell_kit": "dynamictrees:conifer",
-  "texture_overrides": {
-    "leaves": "blue_skies:block/frostbright_leaves"
-  }
-}
