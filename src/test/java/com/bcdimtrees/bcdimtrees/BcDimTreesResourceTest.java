@@ -1,4 +1,4 @@
-package com.btmdimtrees.btmdimtrees;
+package com.bcdimtrees.bcdimtrees;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -14,15 +14,15 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
-final class BtmDimTreesResourceTest {
-    private static final Path TREE_ROOT = Path.of("src/main/resources/trees/btmdimtrees");
+final class BcDimTreesResourceTest {
+    private static final Path TREE_ROOT = Path.of("src/main/resources/trees/bcdimtrees");
     private static final Set<String> EXPECTED_SPECIES = Set.of(
-            "btmdimtrees:finley_wood",
-            "btmdimtrees:grongle",
-            "btmdimtrees:living_wood",
-            "btmdimtrees:silent_tree",
-            "btmdimtrees:smogstem",
-            "btmdimtrees:wigglewood"
+            "bcdimtrees:finley_wood",
+            "bcdimtrees:grongle",
+            "bcdimtrees:living_wood",
+            "bcdimtrees:silent_tree",
+            "bcdimtrees:smogstem",
+            "bcdimtrees:wigglewood"
     );
 
     @Test
@@ -34,7 +34,7 @@ final class BtmDimTreesResourceTest {
         assertEquals(EXPECTED_SPECIES, packagedSpecies);
 
         try (var paths = Files.list(TREE_ROOT.resolve("species"))) {
-            for (Path path : paths.filter(BtmDimTreesResourceTest::isJson).toList()) {
+            for (Path path : paths.filter(BcDimTreesResourceTest::isJson).toList()) {
                 JsonObject species = readObject(path);
                 assertTrue(families.contains(species.get("family").getAsString()), "unknown family in " + path);
                 assertTrue(leavesProperties.contains(species.get("leaves_properties").getAsString()),
@@ -56,7 +56,7 @@ final class BtmDimTreesResourceTest {
             Set<String> referenced = referencedSpecies(apply.get("species"));
             assertFalse(referenced.isEmpty(), "worldgen entry must reference species in " + element);
             referenced.stream()
-                    .filter(id -> id.startsWith("btmdimtrees:"))
+                    .filter(id -> id.startsWith("bcdimtrees:"))
                     .forEach(id -> assertTrue(EXPECTED_SPECIES.contains(id), "unknown species " + id));
             assertTrue(apply.has("density"), "dimension forest worldgen should set density in " + element);
             assertTrue(apply.has("chance"), "dimension forest worldgen should set chance in " + element);
@@ -76,8 +76,8 @@ final class BtmDimTreesResourceTest {
 
     private static Set<String> resourceIds(Path directory) throws IOException {
         try (var paths = Files.list(directory)) {
-            Set<String> ids = paths.filter(BtmDimTreesResourceTest::isJson)
-                    .map(path -> "btmdimtrees:" + path.getFileName().toString().replaceFirst("\\.json$", ""))
+            Set<String> ids = paths.filter(BcDimTreesResourceTest::isJson)
+                    .map(path -> "bcdimtrees:" + path.getFileName().toString().replaceFirst("\\.json$", ""))
                     .collect(Collectors.toUnmodifiableSet());
             assertFalse(ids.isEmpty(), "expected resources in " + directory);
             return ids;

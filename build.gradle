@@ -5,9 +5,9 @@ plugins {
 }
 
 version = project.hasProperty('mod_version') ? project.mod_version : '1.0.0'
-group = 'com.btmdimtrees'
+group = 'com.bcdimtrees'
 base {
-    archivesName = 'btmdimtrees'
+    archivesName = 'bcdimtrees'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -21,7 +21,7 @@ minecraft {
         configureEach {
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            property 'forge.enabledGameTestNamespaces', 'btmdimtrees,minecraft'
+            property 'forge.enabledGameTestNamespaces', 'bcdimtrees,minecraft'
         }
 
         client {
@@ -29,7 +29,7 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             mods {
-                btmdimtrees {
+                bcdimtrees {
                     source sourceSets.main
                 }
             }
@@ -40,7 +40,7 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             mods {
-                btmdimtrees {
+                bcdimtrees {
                     source sourceSets.main
                 }
             }
@@ -51,7 +51,7 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             mods {
-                btmdimtrees {
+                bcdimtrees {
                     source sourceSets.main
                 }
             }
@@ -59,13 +59,13 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-            args '--mod', 'btmdimtrees',
+            args '--mod', 'bcdimtrees',
                  '--all',
                  '--output', file('src/generated/resources/'),
                  '--existing', file('src/main/resources/'),
                  '--existing-mod', 'dynamictrees'
             mods {
-                btmdimtrees {
+                bcdimtrees {
                     source sourceSets.main
                 }
             }
@@ -119,15 +119,24 @@ dependencies {
     // runtimeOnly fg.deobf("com.ferreusveritas.dynamictreesplus:DynamicTreesPlus-1.20.1:1.2.1")
 }
 
+configurations.named('testRuntimeClasspath') {
+    // Unit tests validate resources and placement rules; do not remap game-only dimension jars.
+    exclude group: 'curse.maven', module: 'blue-skies-312918'
+    exclude group: 'curse.maven', module: 'the-undergarden-379849'
+    exclude group: 'curse.maven', module: 'call-from-the-depths-sculk-dimension-1013658'
+    exclude group: 'curse.maven', module: 'the-finley-dimension-remastered-1209777'
+    exclude group: 'curse.maven', module: 'structure-gel-api-378802'
+}
+
 tasks.named('jar') {
     manifest {
         attributes([
-                'Specification-Title'     : 'btmdimtrees',
-                'Specification-Vendor'    : 'btmdimtrees',
+                'Specification-Title'     : 'bcdimtrees',
+                'Specification-Vendor'    : 'bcdimtrees',
                 'Specification-Version'   : '1',
                 'Implementation-Title'    : project.name,
                 'Implementation-Version'  : project.version,
-                'Implementation-Vendor'   : 'btmdimtrees'
+                'Implementation-Vendor'   : 'bcdimtrees'
         ])
     }
 }

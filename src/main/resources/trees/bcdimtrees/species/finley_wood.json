@@ -1,6 +1,6 @@
 {
-  "family": "btmdimtrees:living_wood",
-  "leaves_properties": "btmdimtrees:living_wood",
+  "family": "bcdimtrees:finley_wood",
+  "leaves_properties": "bcdimtrees:finley_wood",
   "tapering": 0.28,
   "signal_energy": 15.0,
   "growth_rate": 0.8,

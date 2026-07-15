@@ -44,7 +44,7 @@
       "name": "undergarden:dense_forest"
     },
     "apply": {
-      "species": "btmdimtrees:grongle",
+      "species": "bcdimtrees:grongle",
       "density": [
         12
       ],
@@ -57,7 +57,7 @@
       "name": "undergarden:gronglegrowth"
     },
     "apply": {
-      "species": "btmdimtrees:grongle",
+      "species": "bcdimtrees:grongle",
       "density": [
         12
       ],
@@ -70,7 +70,7 @@
       "name": "undergarden:smogstem_forest"
     },
     "apply": {
-      "species": "btmdimtrees:smogstem",
+      "species": "bcdimtrees:smogstem",
       "density": [
         12
       ],
@@ -83,7 +83,7 @@
       "name": "undergarden:wigglewood_forest"
     },
     "apply": {
-      "species": "btmdimtrees:wigglewood",
+      "species": "bcdimtrees:wigglewood",
       "density": [
         12
       ],
@@ -96,7 +96,7 @@
       "name": "the_finley_dimension_remastered:finley_forest"
     },
     "apply": {
-      "species": "btmdimtrees:finley_wood",
+      "species": "bcdimtrees:finley_wood",
       "density": [
         12
       ],
@@ -109,7 +109,7 @@
       "name": "the_finley_dimension_remastered:living_forest"
     },
     "apply": {
-      "species": "btmdimtrees:living_wood",
+      "species": "bcdimtrees:living_wood",
       "density": [
         12
       ],
@@ -125,7 +125,7 @@
       ]
     },
     "apply": {
-      "species": "btmdimtrees:silent_tree",
+      "species": "bcdimtrees:silent_tree",
       "density": [
         12
       ],

@@ -1,6 +1,6 @@
 {
-  "family": "btmdimtrees:grongle",
-  "leaves_properties": "btmdimtrees:grongle",
+  "family": "bcdimtrees:grongle",
+  "leaves_properties": "bcdimtrees:grongle",
   "tapering": 0.3,
   "signal_energy": 15.0,
   "growth_rate": 0.7,

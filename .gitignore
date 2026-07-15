@@ -19,3 +19,4 @@
 *.class
 /src/generated/resources/
 /.DS_Store
+.git.corrupt-*/

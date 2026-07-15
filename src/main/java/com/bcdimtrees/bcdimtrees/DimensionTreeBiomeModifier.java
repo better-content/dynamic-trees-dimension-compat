@@ -1,4 +1,4 @@
-package com.btmdimtrees.btmdimtrees;
+package com.bcdimtrees.bcdimtrees;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -40,7 +40,7 @@ public record DimensionTreeBiomeModifier(
     ).apply(instance, DimensionTreeBiomeModifier::new));
 
     public DimensionTreeBiomeModifier {
-        LOGGER.info("Decoded Bound to Matter dimension Dynamic Trees biome modifier: step={}", step);
+        LOGGER.info("Decoded Better Content dimension Dynamic Trees biome modifier: step={}", step);
     }
 
     @Override
@@ -64,7 +64,7 @@ public record DimensionTreeBiomeModifier(
 
     @Override
     public Codec<? extends BiomeModifier> codec() {
-        return BtmDimTreesBiomeModifiers.DIMENSION_TREE.get();
+        return BcDimTreesBiomeModifiers.DIMENSION_TREE.get();
     }
 
     private boolean targetsBiome(final Holder<Biome> biome) {

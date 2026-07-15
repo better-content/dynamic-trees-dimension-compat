@@ -1,4 +1,4 @@
-package com.btmdimtrees.btmdimtrees;
+package com.bcdimtrees.bcdimtrees;
 
 import com.ferreusveritas.dynamictrees.tree.species.Species;
 import com.ferreusveritas.dynamictrees.util.LevelContext;
@@ -127,14 +127,14 @@ public final class DimensionForestChunkDecorator {
         }
         decorated.add(key);
         if (generated > 0 && LOGS.getAndIncrement() < 80) {
-            LOGGER.info("Generated {} Bound to Matter dynamic dimension trees in {} chunk {},{}",
+            LOGGER.info("Generated {} Better Content dynamic dimension trees in {} chunk {},{}",
                     generated, level.dimension().location(), key.x(), key.z());
         }
         return true;
     }
 
     private static int decorateTarget(final ServerLevel level, final ChunkKey key, final Target target, final RandomSource random) {
-        final Species species = Species.REGISTRY.get(BtmDimTrees.location(target.speciesPath()));
+        final Species species = Species.REGISTRY.get(BcDimTrees.location(target.speciesPath()));
         if (!species.isValid()) {
             return 0;
         }
@@ -262,7 +262,7 @@ public final class DimensionForestChunkDecorator {
     }
 
     private static final class DecoratedChunks extends SavedData {
-        private static final String NAME = BtmDimTrees.MODID + "_decorated_dimension_tree_chunks_v2";
+        private static final String NAME = BcDimTrees.MODID + "_decorated_dimension_tree_chunks_v2";
         private final Set<ChunkKey> chunks = new HashSet<>();
 
         static DecoratedChunks get(final ServerLevel level) {

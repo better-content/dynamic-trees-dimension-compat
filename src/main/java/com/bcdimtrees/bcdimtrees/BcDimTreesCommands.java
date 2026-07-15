@@ -1,4 +1,4 @@
-package com.btmdimtrees.btmdimtrees;
+package com.bcdimtrees.bcdimtrees;
 
 import com.ferreusveritas.dynamictrees.api.worldgen.BiomePropertySelectors;
 import com.ferreusveritas.dynamictrees.tree.family.Family;
@@ -30,14 +30,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.List;
 import java.util.Optional;
 
-@Mod.EventBusSubscriber(modid = BtmDimTrees.MODID)
-public final class BtmDimTreesCommands {
-    private BtmDimTreesCommands() {
+@Mod.EventBusSubscriber(modid = BcDimTrees.MODID)
+public final class BcDimTreesCommands {
+    private BcDimTreesCommands() {
     }
 
     @SubscribeEvent
     public static void register(final RegisterCommandsEvent event) {
-        event.getDispatcher().register(Commands.literal("btmdimtrees")
+        event.getDispatcher().register(Commands.literal("bcdimtrees")
                 .requires(source -> source.hasPermission(2))
                 .then(Commands.literal("resource_status")
                         .executes(ctx -> resourceStatus(
@@ -63,7 +63,7 @@ public final class BtmDimTreesCommands {
                 "living_wood",
                 "silent_tree"
         )) {
-            final ResourceLocation id = BtmDimTrees.location(tree);
+            final ResourceLocation id = BcDimTrees.location(tree);
             final Species species = Species.REGISTRY.get(id);
             final Family family = Family.REGISTRY.get(id);
             output.accept(id

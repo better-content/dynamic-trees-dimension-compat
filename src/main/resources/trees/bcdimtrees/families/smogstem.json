@@ -1,6 +1,6 @@
 {
-  "common_leaves": "btmdimtrees:smogstem",
-  "common_species": "btmdimtrees:smogstem",
+  "common_leaves": "bcdimtrees:smogstem",
+  "common_species": "bcdimtrees:smogstem",
   "primitive_log": "undergarden:smogstem_log",
   "primitive_stripped_log": "undergarden:stripped_smogstem_log",
   "max_branch_radius": 8,

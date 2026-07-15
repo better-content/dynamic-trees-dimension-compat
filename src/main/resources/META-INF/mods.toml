@@ -1,65 +1,65 @@
 modLoader="javafml"
 loaderVersion="[47,)"
 license="MIT"
-issueTrackerURL="https://github.com/gerald/btmdimtrees/issues"
+issueTrackerURL="https://github.com/gerald/bcdimtrees/issues"
 
 [[mods]]
-modId="btmdimtrees"
+modId="bcdimtrees"
 version="${file.jarVersion}"
-displayName="Bound to Matter Dynamic Trees: Dimensions"
+displayName="Better Content Dynamic Trees: Dimensions"
 authors="gerald"
 description='''Dynamic Trees compatibility for pack dimension forest trees without published addons.'''
 
-[[dependencies.btmdimtrees]]
+[[dependencies.bcdimtrees]]
     modId="forge"
     mandatory=true
     versionRange="[47,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.btmdimtrees]]
+[[dependencies.bcdimtrees]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.20,1.21)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.btmdimtrees]]
+[[dependencies.bcdimtrees]]
     modId="dynamictrees"
     mandatory=true
     versionRange="[1.4.7,)"
     ordering="AFTER"
     side="BOTH"
 
-[[dependencies.btmdimtrees]]
+[[dependencies.bcdimtrees]]
     modId="blue_skies"
     mandatory=false
     versionRange="[1.3.31,)"
     ordering="AFTER"
     side="BOTH"
 
-[[dependencies.btmdimtrees]]
+[[dependencies.bcdimtrees]]
     modId="undergarden"
     mandatory=false
     versionRange="[0.8.14,)"
     ordering="AFTER"
     side="BOTH"
 
-[[dependencies.btmdimtrees]]
+[[dependencies.bcdimtrees]]
     modId="the_finley_dimension_remastered"
     mandatory=false
     versionRange="[1.0,)"
     ordering="AFTER"
     side="BOTH"
 
-[[dependencies.btmdimtrees]]
+[[dependencies.bcdimtrees]]
     modId="callfromthedepth_"
     mandatory=false
     versionRange="[1.0,)"
     ordering="AFTER"
     side="BOTH"
 
-[[dependencies.btmdimtrees]]
+[[dependencies.bcdimtrees]]
     modId="dynamictreesplus"
     mandatory=false
     versionRange="[1.2.0,)"

@@ -1,6 +1,6 @@
 {
-  "common_leaves": "btmdimtrees:wigglewood",
-  "common_species": "btmdimtrees:wigglewood",
+  "common_leaves": "bcdimtrees:wigglewood",
+  "common_species": "bcdimtrees:wigglewood",
   "primitive_log": "undergarden:wigglewood_log",
   "primitive_stripped_log": "undergarden:stripped_wigglewood_log",
   "max_branch_radius": 8,

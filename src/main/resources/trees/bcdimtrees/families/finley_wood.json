@@ -1,6 +1,6 @@
 {
-  "common_leaves": "btmdimtrees:finley_wood",
-  "common_species": "btmdimtrees:finley_wood",
+  "common_leaves": "bcdimtrees:finley_wood",
+  "common_species": "bcdimtrees:finley_wood",
   "primitive_log": "the_finley_dimension_remastered:finley_wood_log",
   "primitive_stripped_log": "the_finley_dimension_remastered:finley_wood_log",
   "max_branch_radius": 8,

@@ -1,4 +1,4 @@
-package com.btmdimtrees.btmdimtrees;
+package com.bcdimtrees.bcdimtrees;
 
 import com.ferreusveritas.dynamictrees.tree.species.Species;
 import com.ferreusveritas.dynamictrees.util.LevelContext;
@@ -91,7 +91,7 @@ public final class SpeciesTreeFeature extends Feature<SpeciesTreeFeature.Config>
 
     private static void debug(final String message, final Object... args) {
         if (DEBUG_LOGS.getAndIncrement() < 40) {
-            LOGGER.info("[btmdimtrees species_tree] " + message, args);
+            LOGGER.info("[bcdimtrees species_tree] " + message, args);
         }
     }
 

@@ -1,4 +1,4 @@
-package com.btmdimtrees.btmdimtrees;
+package com.bcdimtrees.bcdimtrees;
 
 import com.ferreusveritas.dynamictrees.api.GatherDataHelper;
 import com.ferreusveritas.dynamictrees.api.registry.RegistryHandler;
@@ -17,23 +17,23 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod(BtmDimTrees.MODID)
-public class BtmDimTrees {
-    public static final String MODID = "btmdimtrees";
+@Mod(BcDimTrees.MODID)
+public class BcDimTrees {
+    public static final String MODID = "bcdimtrees";
 
-    public BtmDimTrees() {
+    public BcDimTrees() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::gatherData);
-        BtmDimTreesBiomeModifiers.SERIALIZERS.register(eventBus);
-        BtmDimTreesFeatures.FEATURES.register(eventBus);
+        BcDimTreesBiomeModifiers.SERIALIZERS.register(eventBus);
+        BcDimTreesFeatures.FEATURES.register(eventBus);
         MinecraftForge.EVENT_BUS.register(new DimensionForestChunkDecorator());
         RegistryHandler.setup(MODID);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(BtmDimTreesSoils::registerDimensionSoils);
+        event.enqueueWork(BcDimTreesSoils::registerDimensionSoils);
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {

@@ -1,4 +1,4 @@
-# Bound to Matter Dynamic Trees: Dimensions
+# Better Content Dynamic Trees: Dimensions
 
 Pack-local Dynamic Trees addon for dimension forests that do not have maintained 1.20.1 addons.
 

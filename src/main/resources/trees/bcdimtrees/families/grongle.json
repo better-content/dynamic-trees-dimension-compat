@@ -1,6 +1,6 @@
 {
-  "common_leaves": "btmdimtrees:grongle",
-  "common_species": "btmdimtrees:grongle",
+  "common_leaves": "bcdimtrees:grongle",
+  "common_species": "bcdimtrees:grongle",
   "primitive_log": "undergarden:grongle_log",
   "primitive_stripped_log": "undergarden:stripped_grongle_log",
   "max_branch_radius": 8,

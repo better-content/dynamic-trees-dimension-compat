@@ -1,4 +1,4 @@
-package com.btmdimtrees.btmdimtrees;
+package com.bcdimtrees.bcdimtrees;
 
 import com.ferreusveritas.dynamictrees.block.rooty.RootyBlock;
 import com.ferreusveritas.dynamictrees.block.rooty.SoilHelper;
@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Optional;
 
-public final class BtmDimTreesSoils {
+public final class BcDimTreesSoils {
     private static final Logger LOGGER = LogManager.getLogger();
 
     private static final String[] DIRT_LIKE_SOILS = {
@@ -33,7 +33,7 @@ public final class BtmDimTreesSoils {
             "callfromthedepth_:sporedheatedstone"
     };
 
-    private BtmDimTreesSoils() {
+    private BcDimTreesSoils() {
     }
 
     public static void registerDimensionSoils() {
@@ -51,7 +51,7 @@ public final class BtmDimTreesSoils {
                 continue;
             }
 
-            final ResourceLocation soilId = BtmDimTrees.location(blockId.getNamespace() + "_" + blockId.getPath());
+            final ResourceLocation soilId = BcDimTrees.location(blockId.getNamespace() + "_" + blockId.getPath());
             final SoilProperties properties = new SoilProperties(block, soilId)
                     .setSoilFlags(SoilHelper.getSoilFlags(SoilHelper.DIRT_LIKE));
             properties.setBlock(rootyDirt.get());
