@@ -1,8 +1,8 @@
 {
   "common_leaves": "bcdimtrees:silent_tree",
   "common_species": "bcdimtrees:silent_tree",
-  "primitive_log": "callfromthedepth_:silent_tree",
-  "primitive_stripped_log": "callfromthedepth_:strippedsilenttreelog",
+  "primitive_log": "bcdimtrees:silent_tree_branch",
+  "primitive_stripped_log": "bcdimtrees:stripped_silent_tree_branch",
   "max_branch_radius": 8,
   "texture_overrides": {
     "branch": "callfromthedepth_:block/silent_tree",

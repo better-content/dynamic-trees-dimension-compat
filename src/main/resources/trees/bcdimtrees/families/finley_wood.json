@@ -1,8 +1,8 @@
 {
   "common_leaves": "bcdimtrees:finley_wood",
   "common_species": "bcdimtrees:finley_wood",
-  "primitive_log": "the_finley_dimension_remastered:finley_wood_log",
-  "primitive_stripped_log": "the_finley_dimension_remastered:finley_wood_log",
+  "primitive_log": "bcdimtrees:finley_wood_branch",
+  "primitive_stripped_log": "bcdimtrees:stripped_finley_wood_branch",
   "max_branch_radius": 8,
   "texture_overrides": {
     "branch": "the_finley_dimension_remastered:block/finley_wood_log",

@@ -1,5 +1,5 @@
 {
-  "primitive_leaves": "the_finley_dimension_remastered:finley_wood_leaves",
+  "primitive_leaves": "bcdimtrees:finley_wood_leaves",
   "cell_kit": "dynamictrees:deciduous",
   "texture_overrides": {
     "leaves": "the_finley_dimension_remastered:block/finley_wood_leaves"

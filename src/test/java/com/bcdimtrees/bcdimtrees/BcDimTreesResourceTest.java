@@ -51,7 +51,9 @@ final class BcDimTreesResourceTest {
         JsonElement defaultWorldGen = JsonParser.parseReader(
                 Files.newBufferedReader(TREE_ROOT.resolve("world_gen/default.json"))
         );
-        defaultWorldGen.getAsJsonArray().forEach(element -> {
+        var entries = defaultWorldGen.getAsJsonArray();
+        assertTrue(entries.size() > 0, "expected dimension forest worldgen entries");
+        entries.forEach(element -> {
             JsonObject apply = element.getAsJsonObject().getAsJsonObject("apply");
             Set<String> referenced = referencedSpecies(apply.get("species"));
             assertFalse(referenced.isEmpty(), "worldgen entry must reference species in " + element);

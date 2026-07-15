@@ -1,8 +1,8 @@
 {
   "common_leaves": "bcdimtrees:living_wood",
   "common_species": "bcdimtrees:living_wood",
-  "primitive_log": "the_finley_dimension_remastered:living_wood_log",
-  "primitive_stripped_log": "the_finley_dimension_remastered:living_wood_log",
+  "primitive_log": "bcdimtrees:living_wood_branch",
+  "primitive_stripped_log": "bcdimtrees:stripped_living_wood_branch",
   "max_branch_radius": 8,
   "texture_overrides": {
     "branch": "the_finley_dimension_remastered:block/living_wood_log",
