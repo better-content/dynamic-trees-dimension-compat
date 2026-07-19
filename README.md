@@ -18,3 +18,7 @@ Run:
 ```
 
 Runtime-only compatibility mods resolve from Maven coordinates in `build.gradle`. Do not commit downloaded mod jars under `libs/`.
+
+## Community and support
+
+For modpack and mod discussion, playtest feedback, and bug reports, join the [Better Content Discord](https://discord.gg/EkRnZbzqS9).
