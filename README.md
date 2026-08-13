@@ -22,3 +22,12 @@ Runtime-only compatibility mods resolve from Maven coordinates in `build.gradle`
 ## Community and support
 
 For modpack and mod discussion, playtest feedback, and bug reports, join the [Better Content Discord](https://discord.gg/EkRnZbzqS9).
+
+## Canonical identity
+
+- Repository and Gradle project: `dynamic-trees-dimension-compat`
+- Mod ID and resource namespace: `dynamic_trees_dimension_compat`
+- Maven group: `com.bettercontent`
+- Runtime artifact: `build/libs/dynamic-trees-dimension-compat-<version>.jar`
+
+The canonical identity is a clean break. Legacy mod IDs, resource namespaces, configuration paths, commands, network channels, and saved-data keys are not migrated or aliased.

@@ -1,0 +1,13 @@
+{
+  "common_leaves": "dynamic_trees_dimension_compat:living_wood",
+  "common_species": "dynamic_trees_dimension_compat:living_wood",
+  "primitive_log": "dynamic_trees_dimension_compat:living_wood_branch",
+  "primitive_stripped_log": "dynamic_trees_dimension_compat:stripped_living_wood_branch",
+  "max_branch_radius": 8,
+  "texture_overrides": {
+    "branch": "the_finley_dimension_remastered:block/living_wood_log",
+    "branch_top": "the_finley_dimension_remastered:block/living_wood_log_top",
+    "stripped_branch": "the_finley_dimension_remastered:block/living_wood_log",
+    "stripped_branch_top": "the_finley_dimension_remastered:block/living_wood_log_top"
+  }
+}

@@ -5,9 +5,9 @@ plugins {
 }
 
 version = project.hasProperty('mod_version') ? project.mod_version : '1.0.0'
-group = 'com.bcdimtrees'
+group = 'com.bettercontent'
 base {
-    archivesName = 'bcdimtrees'
+    archivesName = project.property('artifact_name')
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -21,7 +21,7 @@ minecraft {
         configureEach {
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            property 'forge.enabledGameTestNamespaces', 'bcdimtrees,minecraft'
+            property 'forge.enabledGameTestNamespaces', 'dynamic_trees_dimension_compat,minecraft'
         }
 
         client {
@@ -29,7 +29,7 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             mods {
-                bcdimtrees {
+                dynamic_trees_dimension_compat {
                     source sourceSets.main
                 }
             }
@@ -40,7 +40,7 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             mods {
-                bcdimtrees {
+                dynamic_trees_dimension_compat {
                     source sourceSets.main
                 }
             }
@@ -51,7 +51,7 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             mods {
-                bcdimtrees {
+                dynamic_trees_dimension_compat {
                     source sourceSets.main
                 }
             }
@@ -59,13 +59,13 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-            args '--mod', 'bcdimtrees',
+            args '--mod', 'dynamic_trees_dimension_compat',
                  '--all',
                  '--output', file('src/generated/resources/'),
                  '--existing', file('src/main/resources/'),
                  '--existing-mod', 'dynamictrees'
             mods {
-                bcdimtrees {
+                dynamic_trees_dimension_compat {
                     source sourceSets.main
                 }
             }
@@ -131,12 +131,12 @@ configurations.named('testRuntimeClasspath') {
 tasks.named('jar') {
     manifest {
         attributes([
-                'Specification-Title'     : 'bcdimtrees',
-                'Specification-Vendor'    : 'bcdimtrees',
+                'Specification-Title'     : 'dynamic_trees_dimension_compat',
+                'Specification-Vendor'    : 'dynamic_trees_dimension_compat',
                 'Specification-Version'   : '1',
                 'Implementation-Title'    : project.name,
                 'Implementation-Version'  : project.version,
-                'Implementation-Vendor'   : 'bcdimtrees'
+                'Implementation-Vendor'   : 'dynamic_trees_dimension_compat'
         ])
     }
 }

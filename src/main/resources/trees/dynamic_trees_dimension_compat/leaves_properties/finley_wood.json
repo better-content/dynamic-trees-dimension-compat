@@ -1,0 +1,7 @@
+{
+  "primitive_leaves": "dynamic_trees_dimension_compat:finley_wood_leaves",
+  "cell_kit": "dynamictrees:deciduous",
+  "texture_overrides": {
+    "leaves": "the_finley_dimension_remastered:block/finley_wood_leaves"
+  }
+}

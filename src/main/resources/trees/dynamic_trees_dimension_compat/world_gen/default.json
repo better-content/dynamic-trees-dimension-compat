@@ -1,0 +1,136 @@
+[
+  {
+    "select": {
+      "name": "minecraft:dark_forest"
+    },
+    "apply": {
+      "species": "dynamictrees:dark_oak",
+      "density": [
+        16
+      ],
+      "chance": 1,
+      "forestness": 1,
+      "multipass": true
+    }
+  },
+  {
+    "select": {
+      "name": "natures_spirit:redwood_forest"
+    },
+    "apply": {
+      "species": "dtnatures_spirit:redwood",
+      "density": [
+        1.0
+      ],
+      "chance": 1,
+      "forestness": 1
+    }
+  },
+  {
+    "select": {
+      "name": "natures_spirit:snowy_redwood_forest"
+    },
+    "apply": {
+      "species": "dtnatures_spirit:frosty_redwood",
+      "density": [
+        1.0
+      ],
+      "chance": 1,
+      "forestness": 1
+    }
+  },
+  {
+    "select": {
+      "name": "undergarden:dense_forest"
+    },
+    "apply": {
+      "species": "dynamic_trees_dimension_compat:grongle",
+      "density": [
+        12
+      ],
+      "chance": 1,
+      "forestness": 1
+    }
+  },
+  {
+    "select": {
+      "name": "undergarden:gronglegrowth"
+    },
+    "apply": {
+      "species": "dynamic_trees_dimension_compat:grongle",
+      "density": [
+        12
+      ],
+      "chance": 1,
+      "forestness": 1
+    }
+  },
+  {
+    "select": {
+      "name": "undergarden:smogstem_forest"
+    },
+    "apply": {
+      "species": "dynamic_trees_dimension_compat:smogstem",
+      "density": [
+        12
+      ],
+      "chance": 1,
+      "forestness": 1
+    }
+  },
+  {
+    "select": {
+      "name": "undergarden:wigglewood_forest"
+    },
+    "apply": {
+      "species": "dynamic_trees_dimension_compat:wigglewood",
+      "density": [
+        12
+      ],
+      "chance": 1,
+      "forestness": 1
+    }
+  },
+  {
+    "select": {
+      "name": "the_finley_dimension_remastered:finley_forest"
+    },
+    "apply": {
+      "species": "dynamic_trees_dimension_compat:finley_wood",
+      "density": [
+        12
+      ],
+      "chance": 1,
+      "forestness": 1
+    }
+  },
+  {
+    "select": {
+      "name": "the_finley_dimension_remastered:living_forest"
+    },
+    "apply": {
+      "species": "dynamic_trees_dimension_compat:living_wood",
+      "density": [
+        12
+      ],
+      "chance": 1,
+      "forestness": 1
+    }
+  },
+  {
+    "select": {
+      "names": [
+        "callfromthedepth_:deepforest",
+        "callfromthedepth_:forgottenforest"
+      ]
+    },
+    "apply": {
+      "species": "dynamic_trees_dimension_compat:silent_tree",
+      "density": [
+        12
+      ],
+      "chance": 1,
+      "forestness": 1
+    }
+  }
+]
