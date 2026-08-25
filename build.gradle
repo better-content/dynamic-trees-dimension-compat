@@ -136,7 +136,8 @@ tasks.named('jar') {
                 'Specification-Version'   : '1',
                 'Implementation-Title'    : project.name,
                 'Implementation-Version'  : project.version,
-                'Implementation-Vendor'   : 'dynamic_trees_dimension_compat'
+                'Implementation-Vendor'   : 'dynamic_trees_dimension_compat',
+                'MixinConfigs'            : 'dynamic_trees_dimension_compat.mixins.json'
         ])
     }
 }

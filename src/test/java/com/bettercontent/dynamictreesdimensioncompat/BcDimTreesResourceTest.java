@@ -98,6 +98,17 @@ final class BcDimTreesResourceTest {
         });
     }
 
+    @Test
+    void onlyTheRemovedDtaetherBranchIsMadeOptional() {
+        var obsolete = net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(
+                "dtaether", "imbued_skyroot_branch");
+        var live = net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("dtaether", "skyroot_branch");
+
+        assertFalse(DtaetherTagCompat.shouldTreatAsOptional(obsolete, false));
+        assertTrue(DtaetherTagCompat.shouldTreatAsOptional(obsolete, true));
+        assertFalse(DtaetherTagCompat.shouldTreatAsOptional(live, true));
+    }
+
     private static Set<String> referencedSpecies(JsonElement species) {
         if (species.isJsonPrimitive()) {
             return Set.of(species.getAsString());

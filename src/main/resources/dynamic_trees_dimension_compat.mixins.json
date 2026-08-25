@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.bettercontent.dynamictreesdimensioncompat.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "TagEntryMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
