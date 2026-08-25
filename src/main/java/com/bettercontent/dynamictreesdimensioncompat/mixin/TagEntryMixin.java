@@ -13,21 +13,20 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(value = TagEntry.class, remap = false)
+@Mixin(TagEntry.class)
 abstract class TagEntryMixin {
-    @Shadow(aliases = "f_215913_")
+    @Shadow(remap = false)
     @Final
-    private ResourceLocation id;
+    private ResourceLocation f_215913_;
 
-    @Shadow(aliases = "f_215915_")
+    @Shadow(remap = false)
     @Final
     @Mutable
-    private boolean required;
+    private boolean f_215915_;
 
     @Inject(
             method = "<init>(Lnet/minecraft/resources/ResourceLocation;ZZ)V",
-            at = @At("RETURN"),
-            remap = false
+            at = @At("RETURN")
     )
     private void betterContent$makeStructuredDtaetherBranchOptional(
             final ResourceLocation id,
@@ -40,8 +39,7 @@ abstract class TagEntryMixin {
 
     @Inject(
             method = "<init>(Lnet/minecraft/util/ExtraCodecs$TagOrElementLocation;Z)V",
-            at = @At("RETURN"),
-            remap = false
+            at = @At("RETURN")
     )
     private void betterContent$makeCompactDtaetherBranchOptional(
             final ExtraCodecs.TagOrElementLocation location,
@@ -52,8 +50,8 @@ abstract class TagEntryMixin {
     }
 
     private void betterContent$makeDtaetherBranchOptional() {
-        if (DtaetherTagCompat.shouldTreatAsOptional(id, ModList.get().isLoaded("dtaether"))) {
-            required = false;
+        if (DtaetherTagCompat.shouldTreatAsOptional(f_215913_, ModList.get().isLoaded("dtaether"))) {
+            f_215915_ = false;
         }
     }
 }
