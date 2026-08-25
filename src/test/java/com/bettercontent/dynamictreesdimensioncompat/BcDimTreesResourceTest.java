@@ -16,11 +16,9 @@ import org.junit.jupiter.api.Test;
 
 final class BcDimTreesResourceTest {
     private static final Path TREE_ROOT = Path.of("src/main/resources/trees/dynamic_trees_dimension_compat");
+    private static final Path ASSET_ROOT = Path.of("src/main/resources/assets/dynamic_trees_dimension_compat");
     private static final Set<String> EXPECTED_SPECIES = Set.of(
-            "dynamic_trees_dimension_compat:finley_wood",
             "dynamic_trees_dimension_compat:grongle",
-            "dynamic_trees_dimension_compat:living_wood",
-            "dynamic_trees_dimension_compat:silent_tree",
             "dynamic_trees_dimension_compat:smogstem",
             "dynamic_trees_dimension_compat:wigglewood"
     );
@@ -44,6 +42,22 @@ final class BcDimTreesResourceTest {
                 assertTrue(species.get("up_probability").getAsInt() > 0, "up_probability must be positive in " + path);
             }
         }
+    }
+
+    @Test
+    void retainedSpeciesHaveCompleteRenderResources() {
+        EXPECTED_SPECIES.forEach(id -> {
+            String path = id.substring(id.indexOf(':') + 1);
+            assertTrue(Files.isRegularFile(ASSET_ROOT.resolve("blockstates/" + path + "_branch.json")));
+            assertTrue(Files.isRegularFile(ASSET_ROOT.resolve("blockstates/stripped_" + path + "_branch.json")));
+            assertTrue(Files.isRegularFile(ASSET_ROOT.resolve("blockstates/" + path + "_leaves.json")));
+            assertTrue(Files.isRegularFile(ASSET_ROOT.resolve("blockstates/" + path + "_sapling.json")));
+            assertTrue(Files.isRegularFile(ASSET_ROOT.resolve("models/block/" + path + "_branch.json")));
+            assertTrue(Files.isRegularFile(ASSET_ROOT.resolve("models/block/stripped_" + path + "_branch.json")));
+            assertTrue(Files.isRegularFile(ASSET_ROOT.resolve("models/block/saplings/" + path + ".json")));
+            assertTrue(Files.isRegularFile(ASSET_ROOT.resolve("models/item/" + path + "_branch.json")));
+            assertTrue(Files.isRegularFile(ASSET_ROOT.resolve("models/item/" + path + "_seed.json")));
+        });
     }
 
     @Test

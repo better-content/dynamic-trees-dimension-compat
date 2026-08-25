@@ -90,47 +90,5 @@
       "chance": 1,
       "forestness": 1
     }
-  },
-  {
-    "select": {
-      "name": "the_finley_dimension_remastered:finley_forest"
-    },
-    "apply": {
-      "species": "dynamic_trees_dimension_compat:finley_wood",
-      "density": [
-        12
-      ],
-      "chance": 1,
-      "forestness": 1
-    }
-  },
-  {
-    "select": {
-      "name": "the_finley_dimension_remastered:living_forest"
-    },
-    "apply": {
-      "species": "dynamic_trees_dimension_compat:living_wood",
-      "density": [
-        12
-      ],
-      "chance": 1,
-      "forestness": 1
-    }
-  },
-  {
-    "select": {
-      "names": [
-        "callfromthedepth_:deepforest",
-        "callfromthedepth_:forgottenforest"
-      ]
-    },
-    "apply": {
-      "species": "dynamic_trees_dimension_compat:silent_tree",
-      "density": [
-        12
-      ],
-      "chance": 1,
-      "forestness": 1
-    }
   }
 ]

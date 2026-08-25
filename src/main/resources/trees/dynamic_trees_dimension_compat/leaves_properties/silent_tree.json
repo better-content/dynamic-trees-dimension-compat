@@ -1,7 +1,0 @@
-{
-  "primitive_leaves": "dynamic_trees_dimension_compat:silent_tree_leaves",
-  "cell_kit": "dynamictrees:deciduous",
-  "texture_overrides": {
-    "leaves": "callfromthedepth_:block/silentleaves"
-  }
-}
