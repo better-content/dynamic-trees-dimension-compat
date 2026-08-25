@@ -5,9 +5,9 @@
   "primitive_stripped_log": "undergarden:stripped_smogstem_log",
   "max_branch_radius": 8,
   "texture_overrides": {
-    "branch": "undergarden:block/smogstem_log",
-    "branch_top": "undergarden:block/smogstem_log_top",
-    "stripped_branch": "undergarden:block/stripped_smogstem_log",
-    "stripped_branch_top": "undergarden:block/stripped_smogstem_log_top"
+    "branch": "undergarden:block/smogstem_log_side",
+    "branch_top": "undergarden:block/smogstem_log_end",
+    "stripped_branch": "undergarden:block/stripped_smogstem_log_side",
+    "stripped_branch_top": "undergarden:block/stripped_smogstem_log_end"
   }
 }

@@ -3,6 +3,6 @@
   "render_type": "minecraft:cutout_mipped",
   "textures": {
     "leaves": "undergarden:block/wigglewood_leaves",
-    "log": "undergarden:block/wigglewood_log"
+    "log": "undergarden:block/wigglewood_log_side"
   }
 }

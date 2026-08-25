@@ -3,6 +3,6 @@
   "render_type": "minecraft:cutout_mipped",
   "textures": {
     "leaves": "undergarden:block/smogstem_leaves",
-    "log": "undergarden:block/smogstem_log"
+    "log": "undergarden:block/smogstem_log_side"
   }
 }

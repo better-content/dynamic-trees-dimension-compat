@@ -61,6 +61,25 @@ final class BcDimTreesResourceTest {
     }
 
     @Test
+    void undergardenModelsUseCurrentSideAndEndTextureNames() throws IOException {
+        try (var paths = Files.walk(ASSET_ROOT.resolve("models"))) {
+            for (Path path : paths.filter(BcDimTreesResourceTest::isJson).toList()) {
+                String json = Files.readString(path);
+                assertFalse(json.matches("(?s).*undergarden:block/(?:stripped_)?(?:grongle|smogstem|wigglewood)_log(?:_top)?\".*"),
+                        "obsolete Undergarden log texture in " + path);
+            }
+        }
+
+        try (var paths = Files.list(TREE_ROOT.resolve("families"))) {
+            for (Path path : paths.filter(BcDimTreesResourceTest::isJson).toList()) {
+                String json = Files.readString(path);
+                assertFalse(json.matches("(?s).*undergarden:block/(?:stripped_)?(?:grongle|smogstem|wigglewood)_log(?:_top)?\".*"),
+                        "obsolete Undergarden family texture in " + path);
+            }
+        }
+    }
+
+    @Test
     void worldGenTargetsPackagedSpecies() throws IOException {
         JsonElement defaultWorldGen = JsonParser.parseReader(
                 Files.newBufferedReader(TREE_ROOT.resolve("world_gen/default.json"))
