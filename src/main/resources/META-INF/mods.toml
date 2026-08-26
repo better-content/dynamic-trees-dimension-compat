@@ -1,12 +1,13 @@
 modLoader="javafml"
 loaderVersion="[47,)"
 license="AGPL-3.0-or-later"
-issueTrackerURL="https://github.com/gerald/dynamic_trees_dimension_compat/issues"
+issueTrackerURL="https://github.com/better-content/dynamic-trees-dimension-compat/issues"
 
 [[mods]]
 modId="dynamic_trees_dimension_compat"
 version="${file.jarVersion}"
 displayName="Better Content Dynamic Trees: Dimensions"
+displayURL="https://github.com/better-content/dynamic-trees-dimension-compat"
 authors="gerald"
 description='''Dynamic Trees compatibility for pack dimension forest trees without published addons.'''
 
