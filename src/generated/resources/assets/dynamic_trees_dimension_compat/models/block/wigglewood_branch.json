@@ -1,0 +1,7 @@
+{
+  "loader": "dynamictrees:branch",
+  "textures": {
+    "bark": "undergarden:block/wigglewood_log_side",
+    "rings": "undergarden:block/wigglewood_log_end"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "block.dynamic_trees_dimension_compat.grongle_branch": "Grongle Tree",
+  "block.dynamic_trees_dimension_compat.smogstem_branch": "Smogstem Tree",
+  "block.dynamic_trees_dimension_compat.wigglewood_branch": "Wigglewood Tree",
+  "item.dynamic_trees_dimension_compat.grongle_seed": "Grongle Seed",
+  "item.dynamic_trees_dimension_compat.smogstem_seed": "Smogstem Seed",
+  "item.dynamic_trees_dimension_compat.wigglewood_seed": "Wigglewood Seed",
+  "species.dynamic_trees_dimension_compat.grongle": "Grongle",
+  "species.dynamic_trees_dimension_compat.smogstem": "Smogstem",
+  "species.dynamic_trees_dimension_compat.wigglewood": "Wigglewood"
+}

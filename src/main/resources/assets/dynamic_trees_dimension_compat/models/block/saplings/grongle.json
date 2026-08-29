@@ -1,8 +1,0 @@
-{
-  "parent": "dynamictrees:block/smartmodel/sapling",
-  "render_type": "minecraft:cutout_mipped",
-  "textures": {
-    "leaves": "undergarden:block/grongle_leaves",
-    "log": "undergarden:block/grongle_log_side"
-  }
-}

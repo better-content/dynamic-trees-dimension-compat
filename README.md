@@ -1,23 +1,19 @@
 # Better Content Dynamic Trees: Dimensions
 
-Pack-local Dynamic Trees addon for dimension forests that do not have maintained 1.20.1 addons.
+Pack-local Dynamic Trees addon for The Undergarden's 1.20.1 forests.
 
-Currently covers:
-
-- Blue Skies: bluebright, dusk, frostbright, maple, starlit.
-- The Undergarden: grongle, smogstem, wigglewood.
-- The Finley Dimension Remastered: finley wood, living wood.
-- Call From The Depths: silent tree.
+It owns the grongle, smogstem, and wigglewood species, their generated resources and soil aliases,
+and delayed chunk decoration for the four matching Undergarden forest biomes.
 
 Run:
 
 ```sh
-./gradlew test
+./gradlew verifyFast
 ./gradlew runData
-./gradlew build
+./gradlew verifyFull
 ```
 
-Runtime-only compatibility mods resolve from Maven coordinates in `build.gradle`. Do not commit downloaded mod jars under `libs/`.
+The Undergarden is a required runtime dependency and resolves from Maven in `build.gradle`.
 
 ## Community and support
 

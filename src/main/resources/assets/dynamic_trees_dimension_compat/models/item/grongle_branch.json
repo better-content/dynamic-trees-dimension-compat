@@ -1,7 +1,0 @@
-{
-  "parent": "dynamictrees:item/branch",
-  "textures": {
-    "bark": "undergarden:block/grongle_log_side",
-    "rings": "undergarden:block/grongle_log_end"
-  }
-}

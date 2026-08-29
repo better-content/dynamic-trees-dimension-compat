@@ -1,46 +1,6 @@
 [
   {
     "select": {
-      "name": "minecraft:dark_forest"
-    },
-    "apply": {
-      "species": "dynamictrees:dark_oak",
-      "density": [
-        16
-      ],
-      "chance": 1,
-      "forestness": 1,
-      "multipass": true
-    }
-  },
-  {
-    "select": {
-      "name": "natures_spirit:redwood_forest"
-    },
-    "apply": {
-      "species": "dtnatures_spirit:redwood",
-      "density": [
-        1.0
-      ],
-      "chance": 1,
-      "forestness": 1
-    }
-  },
-  {
-    "select": {
-      "name": "natures_spirit:snowy_redwood_forest"
-    },
-    "apply": {
-      "species": "dtnatures_spirit:frosty_redwood",
-      "density": [
-        1.0
-      ],
-      "chance": 1,
-      "forestness": 1
-    }
-  },
-  {
-    "select": {
       "name": "undergarden:dense_forest"
     },
     "apply": {

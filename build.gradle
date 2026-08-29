@@ -63,7 +63,8 @@ minecraft {
                  '--all',
                  '--output', file('src/generated/resources/'),
                  '--existing', file('src/main/resources/'),
-                 '--existing-mod', 'dynamictrees'
+                 '--existing-mod', 'dynamictrees',
+                 '--existing-mod', 'undergarden'
             mods {
                 dynamic_trees_dimension_compat {
                     source sourceSets.main
@@ -107,25 +108,15 @@ repositories {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.4.13'
-    implementation fg.deobf("com.ferreusveritas.dynamictrees:DynamicTrees-1.20.1:1.4.9")
-    runtimeOnly fg.deobf("curse.maven:blue-skies-312918:5010316")
+    implementation fg.deobf("com.ferreusveritas.dynamictrees:DynamicTrees-1.20.1:1.4.10")
     runtimeOnly fg.deobf("curse.maven:the-undergarden-379849:5182632")
-    runtimeOnly fg.deobf("curse.maven:call-from-the-depths-sculk-dimension-1013658:7097966")
-    runtimeOnly fg.deobf("curse.maven:the-finley-dimension-remastered-1209777:6527178")
-    runtimeOnly fg.deobf("curse.maven:structure-gel-api-378802:5278429")
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     testImplementation 'com.google.code.gson:gson:2.10.1'
-    // Optional at runtime if you use DTPlus-only treepack content.
-    // runtimeOnly fg.deobf("com.ferreusveritas.dynamictreesplus:DynamicTreesPlus-1.20.1:1.2.1")
 }
 
 configurations.named('testRuntimeClasspath') {
-    // Unit tests validate resources and placement rules; do not remap game-only dimension jars.
-    exclude group: 'curse.maven', module: 'blue-skies-312918'
+    // Unit tests validate resources and placement rules; do not remap the game-only dimension jar.
     exclude group: 'curse.maven', module: 'the-undergarden-379849'
-    exclude group: 'curse.maven', module: 'call-from-the-depths-sculk-dimension-1013658'
-    exclude group: 'curse.maven', module: 'the-finley-dimension-remastered-1209777'
-    exclude group: 'curse.maven', module: 'structure-gel-api-378802'
 }
 
 tasks.named('jar') {
@@ -136,8 +127,7 @@ tasks.named('jar') {
                 'Specification-Version'   : '1',
                 'Implementation-Title'    : project.name,
                 'Implementation-Version'  : project.version,
-                'Implementation-Vendor'   : 'dynamic_trees_dimension_compat',
-                'MixinConfigs'            : 'dynamic_trees_dimension_compat.mixins.json'
+                'Implementation-Vendor'   : 'dynamic_trees_dimension_compat'
         ])
     }
 }

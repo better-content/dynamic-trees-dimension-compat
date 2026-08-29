@@ -1,0 +1,6 @@
+{
+  "parent": "dynamictrees:item/standard_seed",
+  "textures": {
+    "layer0": "dynamic_trees_dimension_compat:item/smogstem_seed"
+  }
+}

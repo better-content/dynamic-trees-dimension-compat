@@ -1,7 +1,0 @@
-{
-  "loader": "dynamictrees:branch",
-  "textures": {
-    "bark": "undergarden:block/stripped_grongle_log_side",
-    "rings": "undergarden:block/stripped_grongle_log_end"
-  }
-}

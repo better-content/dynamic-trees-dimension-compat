@@ -16,7 +16,8 @@ import org.junit.jupiter.api.Test;
 
 final class BcDimTreesResourceTest {
     private static final Path TREE_ROOT = Path.of("src/main/resources/trees/dynamic_trees_dimension_compat");
-    private static final Path ASSET_ROOT = Path.of("src/main/resources/assets/dynamic_trees_dimension_compat");
+    private static final Path ASSET_ROOT = Path.of("src/generated/resources/assets/dynamic_trees_dimension_compat");
+    private static final Path MODS_TOML = Path.of("src/main/resources/META-INF/mods.toml");
     private static final Set<String> EXPECTED_SPECIES = Set.of(
             "dynamic_trees_dimension_compat:grongle",
             "dynamic_trees_dimension_compat:smogstem",
@@ -85,8 +86,10 @@ final class BcDimTreesResourceTest {
                 Files.newBufferedReader(TREE_ROOT.resolve("world_gen/default.json"))
         );
         var entries = defaultWorldGen.getAsJsonArray();
-        assertTrue(entries.size() > 0, "expected dimension forest worldgen entries");
+        assertEquals(4, entries.size(), "expected only the four Undergarden forest entries");
         entries.forEach(element -> {
+            String biome = element.getAsJsonObject().getAsJsonObject("select").get("name").getAsString();
+            assertTrue(biome.startsWith("undergarden:"), "non-Undergarden target " + biome);
             JsonObject apply = element.getAsJsonObject().getAsJsonObject("apply");
             Set<String> referenced = referencedSpecies(apply.get("species"));
             assertFalse(referenced.isEmpty(), "worldgen entry must reference species in " + element);
@@ -99,14 +102,43 @@ final class BcDimTreesResourceTest {
     }
 
     @Test
-    void onlyTheRemovedDtaetherBranchIsMadeOptional() {
-        var obsolete = net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(
-                "dtaether", "imbued_skyroot_branch");
-        var live = net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("dtaether", "skyroot_branch");
+    void ownsTheSixUndergardenSoilAliases() throws IOException {
+        Path soilRoot = TREE_ROOT.resolve("soil_properties");
+        Set<String> expected = Set.of(
+                "ashen_deepturf_block", "coarse_deepsoil", "deepsoil",
+                "deepsoil_farmland", "deepturf_block", "frozen_deepturf_block"
+        );
+        try (var paths = Files.list(soilRoot)) {
+            Set<String> actual = paths.filter(BcDimTreesResourceTest::isJson)
+                    .map(path -> path.getFileName().toString().replaceFirst("\\.json$", ""))
+                    .collect(Collectors.toUnmodifiableSet());
+            assertEquals(expected, actual);
+        }
+        for (String name : expected) {
+            JsonObject soil = readObject(soilRoot.resolve(name + ".json"));
+            assertTrue(soil.get("primitive_soil").getAsString().startsWith("undergarden:"));
+            assertTrue(soil.getAsJsonArray("acceptable_soils").asList().stream()
+                    .anyMatch(value -> "dirt_like".equals(value.getAsString())));
+            assertTrue(soil.get("substitute_soil").getAsString().startsWith("dynamictrees:"));
+        }
+    }
 
-        assertFalse(DtaetherTagCompat.shouldTreatAsOptional(obsolete, false));
-        assertTrue(DtaetherTagCompat.shouldTreatAsOptional(obsolete, true));
-        assertFalse(DtaetherTagCompat.shouldTreatAsOptional(live, true));
+    @Test
+    void declaresOnlyRequiredRuntimeDependencies() throws IOException {
+        String manifest = Files.readString(MODS_TOML);
+        assertTrue(manifest.contains("modId=\"undergarden\""));
+        assertTrue(manifest.matches("(?s).*modId=\"undergarden\"\\s+mandatory=true.*"));
+        for (String retired : Set.of("blue_skies", "dtaether", "dynamictreesplus", "dynamic_trees_addon_lib")) {
+            assertFalse(manifest.contains("modId=\"" + retired + "\""), "retired dependency " + retired);
+        }
+    }
+
+    @Test
+    void preservesExistingWorldDecorationSavedDataKey() {
+        assertEquals(
+                "dynamic_trees_dimension_compat_decorated_dimension_tree_chunks_v2",
+                DimensionForestChunkDecorator.DECORATED_CHUNKS_NAME
+        );
     }
 
     private static Set<String> referencedSpecies(JsonElement species) {

@@ -35,22 +35,19 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public final class DimensionForestChunkDecorator {
+    static final String DECORATED_CHUNKS_NAME =
+            BcDimTrees.MODID + "_decorated_dimension_tree_chunks_v2";
     private static final Logger LOGGER = LogManager.getLogger();
     private static final int DELAY_TICKS = 40;
     private static final int MAX_CHUNKS_PER_TICK = 2;
     private static final int ROOT_SCAN_DEPTH = 48;
-    private static final int COLUMN_SCAN_STRIDE = 4;
     private static final AtomicInteger LOGS = new AtomicInteger();
 
     private static final List<Target> TARGETS = List.of(
-            new Target("undergarden:undergarden", "undergarden:dense_forest", "grongle", 5, 3, false),
-            new Target("undergarden:undergarden", "undergarden:gronglegrowth", "grongle", 6, 3, false),
-            new Target("undergarden:undergarden", "undergarden:smogstem_forest", "smogstem", 6, 3, false),
-            new Target("undergarden:undergarden", "undergarden:wigglewood_forest", "wigglewood", 6, 3, false),
-            new Target("the_finley_dimension_remastered:finley_dimension", "the_finley_dimension_remastered:finley_forest", "finley_wood", 5, 3, false),
-            new Target("the_finley_dimension_remastered:finley_dimension", "the_finley_dimension_remastered:living_forest", "living_wood", 7, 3, false),
-            new Target("callfromthedepth_:depth", "callfromthedepth_:deepforest", "silent_tree", 8, 3, true),
-            new Target("callfromthedepth_:depth", "callfromthedepth_:forgottenforest", "silent_tree", 8, 3, true)
+            new Target("undergarden:undergarden", "undergarden:dense_forest", "grongle", 5, 3),
+            new Target("undergarden:undergarden", "undergarden:gronglegrowth", "grongle", 6, 3),
+            new Target("undergarden:undergarden", "undergarden:smogstem_forest", "smogstem", 6, 3),
+            new Target("undergarden:undergarden", "undergarden:wigglewood_forest", "wigglewood", 6, 3)
     );
 
     private final Map<ResourceKey<Level>, ArrayDeque<PendingChunk>> pending = new ConcurrentHashMap<>();
@@ -144,9 +141,7 @@ public final class DimensionForestChunkDecorator {
         for (int attempt = 0; attempt < target.attempts(); attempt++) {
             final int x = key.x() * 16 + random.nextInt(16);
             final int z = key.z() * 16 + random.nextInt(16);
-            final BlockPos rootPos = target.columnScan()
-                    ? findRootPosInColumn(level, x, z, target.biomeId(), species, random)
-                    : findSurfaceRootPos(level, x, z, target.biomeId(), species);
+            final BlockPos rootPos = findSurfaceRootPos(level, x, z, target.biomeId(), species);
             if (rootPos == null) {
                 continue;
             }
@@ -188,40 +183,6 @@ public final class DimensionForestChunkDecorator {
         return null;
     }
 
-    private static BlockPos findRootPosInColumn(
-            final ServerLevel level,
-            final int x,
-            final int z,
-            final String biomeId,
-            final Species species,
-            final RandomSource random
-    ) {
-        BlockPos selected = null;
-        int candidates = 0;
-        final int minY = level.getMinBuildHeight();
-        final int maxY = level.getMaxBuildHeight() - 1;
-        for (int y = maxY; y >= minY; y--) {
-            final BlockPos pos = new BlockPos(x, y, z);
-            final BlockState state = level.getBlockState(pos);
-            if (!species.isAcceptableSoilForWorldgen(level, pos, state)) {
-                continue;
-            }
-            final BlockPos trunkSpace = pos.above();
-            if (!isTargetBiome(level, trunkSpace, biomeId)) {
-                continue;
-            }
-            if (!level.getBlockState(trunkSpace).canBeReplaced()) {
-                continue;
-            }
-            candidates++;
-            if (random.nextInt(candidates) == 0) {
-                selected = pos;
-            }
-            y -= COLUMN_SCAN_STRIDE - 1;
-        }
-        return selected;
-    }
-
     private static boolean isTargetBiome(final ServerLevel level, final BlockPos pos, final String biomeId) {
         return level.getBiome(pos).unwrapKey()
                 .map(key -> biomeId.equals(key.location().toString()))
@@ -239,7 +200,7 @@ public final class DimensionForestChunkDecorator {
         return targets;
     }
 
-    private record Target(String dimensionId, String biomeId, String speciesPath, int attempts, int radius, boolean columnScan) {
+    private record Target(String dimensionId, String biomeId, String speciesPath, int attempts, int radius) {
     }
 
     private record PendingChunk(ChunkKey key, int ticksRemaining) {
@@ -262,11 +223,11 @@ public final class DimensionForestChunkDecorator {
     }
 
     private static final class DecoratedChunks extends SavedData {
-        private static final String NAME = BcDimTrees.MODID + "_decorated_dimension_tree_chunks_v2";
         private final Set<ChunkKey> chunks = new HashSet<>();
 
         static DecoratedChunks get(final ServerLevel level) {
-            return level.getDataStorage().computeIfAbsent(DecoratedChunks::load, DecoratedChunks::new, NAME);
+            return level.getDataStorage().computeIfAbsent(
+                    DecoratedChunks::load, DecoratedChunks::new, DECORATED_CHUNKS_NAME);
         }
 
         private static DecoratedChunks load(final CompoundTag tag) {
