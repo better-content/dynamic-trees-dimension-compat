@@ -153,12 +153,6 @@ test {
     useJUnitPlatform()
 }
 
-tasks.register('headlessGameTest') {
-    group = 'verification'
-    description = 'Runs Forge game tests in a headless dedicated server.'
-    dependsOn tasks.named('runGameTestServer')
-}
-
 tasks.register('verifyFast') {
     group = 'verification'
     description = 'Runs the fast deterministic verification lane.'
