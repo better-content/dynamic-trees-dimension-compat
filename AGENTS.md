@@ -1,21 +1,9 @@
-# AGENTS.md
+# Dynamic Trees Dimension Compat — validation-only
 
-## Scope
+Forge 1.20.1 / Java 17; mod ID `dynamic_trees_dimension_compat`.
+Deterministic checks: `./gradlew verifyFast`; source/data gate: `./gradlew runData verifyFull`.
+Do not deploy this validation-only addon; The Undergarden is retired from the pack.
 
-This repository contains the Better Content-owned Forge mod **Dynamic Trees Dimension Compat**.
-
-- Canonical mod ID: `dynamic_trees_dimension_compat`
-- Canonical artifact: `dynamic-trees-dimension-compat-<version>.jar`
-- Maven group: `com.bettercontent`
-- Java runtime: 17
-- Minecraft/Forge baseline: 1.20.1 / 47.4.13
-
-## Commit discipline
-
-Commit after each coherent completed change. Run the documented validation before committing and push the current branch; do not leave completed work uncommitted or unpushed unless the user explicitly asks.
-
-## Validation
-
-Run `./gradlew verifyFast` for the deterministic CI-equivalent lane. Use `./gradlew verifyFull` when a change affects Forge runtime or GameTest behavior and the task defines that lane.
-
-Do not commit build outputs, runtime worlds, logs, IDE state, downloaded dependency JARs, or generated caches.
+Read [shared workspace policy](../../better-content-modpack/docs/policies/workspace.md)
+and its linked testing/disposal policies. Docs-only changes use the shared document check
+and `git diff --check`, not unrelated runtime builds.
