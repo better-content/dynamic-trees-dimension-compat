@@ -1,9 +1,8 @@
 # Better Content Dynamic Trees: Dimensions — validation-only
 
-## Scope and authority
+## Scope
 
-This repository is validation-only; The Undergarden is retired from the pack. Read
-[local instructions](AGENTS.md) and the [shared policy index](../../better-content-modpack/docs/README.md).
+This repository is validation-only; The Undergarden is retired from the pack.
 
 
 Pack-local Dynamic Trees addon for The Undergarden's 1.20.1 forests.
