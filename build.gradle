@@ -1,5 +1,6 @@
 plugins {
     id 'net.minecraftforge.gradle' version '6.0.44'
+    id 'org.spongepowered.mixin' version '0.7.38'
     id 'eclipse'
     id 'maven-publish'
 }
@@ -110,6 +111,7 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.4.13'
     implementation fg.deobf("com.ferreusveritas.dynamictrees:DynamicTrees-1.20.1:1.4.10")
     runtimeOnly fg.deobf("curse.maven:the-undergarden-379849:5182632")
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     testImplementation 'com.google.code.gson:gson:2.10.1'
 }
@@ -159,9 +161,14 @@ tasks.register('verifyFast') {
     dependsOn tasks.named('check')
 }
 
+mixin { config 'dynamic_trees_dimension_compat.mixins.json' }
+
+apply from: 'gradle/leaf-pile-native.gradle'
+
 tasks.register('verifyFull') {
     group = 'verification'
-    description = 'Runs the full deterministic verification lane and stages the runtime jar.'
+    description = 'Runs deterministic checks and the pinned native leaf-pile interoperability contract.'
     dependsOn tasks.named('verifyFast')
     dependsOn tasks.named('stageRuntimeJar')
+    dependsOn tasks.named('verifyLeafPileNative')
 }

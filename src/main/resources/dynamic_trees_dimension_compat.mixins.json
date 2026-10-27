@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.bettercontent.dynamictreesdimensioncompat.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": ["ImmersiveWeatheringLeafPileMixin"],
+  "injectors": {"defaultRequire": 1}
+}

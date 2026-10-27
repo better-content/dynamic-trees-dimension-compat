@@ -1,0 +1,59 @@
+import groovy.json.JsonSlurper
+
+// Test-only dependencies/source roots. No optional IW/Moonlight production dependency.
+def fixture = sourceSets.create('nativeFixture')
+fixture.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+fixture.runtimeClasspath += sourceSets.main.runtimeClasspath
+[
+    'immersive-weathering-592449:6116941',
+    'moonlight-499980:8261419',
+    // DT's conditional guide recipe has a malformed empty fallback; exercise
+    // its real supported branch with the same Patchouli pin as the pack.
+    'patchouli-306770:7731017'
+].each { dependencies.add(fixture.runtimeOnlyConfigurationName, fg.deobf('curse.maven:' + it)) }
+
+def token = UUID.randomUUID().toString()
+def runRoot = layout.buildDirectory.dir('gametest/' + token).get().asFile
+def report = new File(runRoot, 'execution.json')
+def nativeRun = minecraft.runs.gameTestServer
+nativeRun.workingDirectory(runRoot)
+nativeRun.property('forge.enabledGameTestNamespaces', 'dynamic_trees_dimension_fixture')
+nativeRun.property('bc.dtdim.runToken', token)
+nativeRun.property('bc.dtdim.report', report.absolutePath)
+nativeRun.mods.create('dynamic_trees_dimension_fixture') { source(fixture) }
+
+tasks.matching { it.name == 'runGameTestServer' }.configureEach {
+    dependsOn(tasks.named(fixture.classesTaskName), tasks.named('stageRuntimeJar'))
+    doFirst {
+        if (new File(runRoot, 'world').exists() || new File(runRoot, 'logs').exists() || report.exists()) {
+            throw new GradleException('Native fixture must not reuse world/log/report evidence: ' + runRoot)
+        }
+        runRoot.mkdirs()
+        new File(runRoot, 'server.properties').text = 'online-mode=false\nview-distance=4\nsimulation-distance=4\nlevel-type=minecraft:flat\ngenerate-structures=false\nlevel-seed=0\ngenerator-settings={"layers":[{"height":1,"block":"minecraft:bedrock"},{"height":2,"block":"minecraft:dirt"},{"height":1,"block":"minecraft:grass_block"}],"biome":"minecraft:plains","structure_overrides":[]}\n'
+    }
+}
+
+tasks.register('verifyLeafPileNative') {
+    group = 'verification'
+    dependsOn(tasks.named('runGameTestServer'))
+    doLast {
+        if (!report.isFile()) throw new GradleException('Missing fresh native execution report: ' + report)
+        def result = new JsonSlurper().parse(report)
+        if (result.run_token != token || result.id != 'generated_leaf_piles_preserve_native_semantics' || result.passed != true ||
+                result.effective_tables != 6 || result.native_drop_cases != 54) {
+            throw new GradleException('Incomplete/stale native leaf-pile contract: ' + result)
+        }
+        def log = new File(runRoot, 'logs/latest.log')
+        if (!log.isFile()) throw new GradleException('Missing current native log: ' + log)
+        def text = log.getText('UTF-8')
+        if (!text.contains('1 GAME TESTS COMPLETE') || !text.contains('All 1 required tests passed')) {
+            throw new GradleException('Native GameTest did not finish with one required pass')
+        }
+        def fatal = text.readLines().findAll { it =~ /\/(ERROR|FATAL)\]/ }
+        if (fatal) throw new GradleException('Native ERROR/FATAL records: ' + fatal.take(8))
+        def jar = layout.buildDirectory.file("libs/${project.base.archivesName.get()}-${project.version}.jar").get().asFile
+        def leaked = zipTree(jar).matching { include '**/nativefixture/**', '**/dynamic_trees_dimension_fixture/**' }.files
+        if (leaked) throw new GradleException('Nonshipping fixture leaked into runtime JAR: ' + leaked)
+        logger.lifecycle('Verified fresh native leaf-pile contract: 6 effective tables, 54 native drops; ' + report)
+    }
+}
